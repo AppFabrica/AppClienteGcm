@@ -37,7 +37,7 @@ public class Utilidades {
     public static String RegistrarseEnAplicacionServidor(Context context,String registrationToken) throws  Exception
     {
         String imei = DameIMEI(context);
-        String stringUrl = "http://192.168.0.13:1583/MiServicioGcm.svc/RegistroGcm?imei=" + imei + "&registrationId=" + registrationToken;
+        String stringUrl = "http://172.16.19.74:1583/MiServicioGcm.svc/RegistroGcm?imei=" + imei + "&registrationId=" + registrationToken;
 
         URL url = new URL(stringUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

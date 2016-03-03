@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             Utilidades.MostrarAlertDialog(context, ex.getMessage(), "ERROR",R.mipmap.ic_error).show();
         }
     }
@@ -68,6 +69,7 @@ public class MainActivity extends ActionBarActivity {
                 return respuesta;
             }
             catch (Exception ex){
+                ex.printStackTrace();
                 return ex;
             }
         }
