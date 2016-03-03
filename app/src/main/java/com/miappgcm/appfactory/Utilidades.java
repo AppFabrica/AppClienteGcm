@@ -41,8 +41,8 @@ public class Utilidades {
 
         URL url = new URL(stringUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setReadTimeout(10000 /* milliseconds */);
-        connection.setConnectTimeout(15000 /* milliseconds */);
+        connection.setReadTimeout(60000 /* milliseconds */);
+        connection.setConnectTimeout(60000 /* milliseconds */);
         connection.setRequestMethod("GET");
 
         int codigoEstado = connection.getResponseCode();
@@ -60,8 +60,7 @@ public class Utilidades {
         bufferedReader.close();
         inputStream.close();
 
-        respuesta = new JSONObject(respuesta).getString("RegistroGcmResult");
-
+        respuesta = respuesta.replaceAll("\"", "");
         if(!respuesta.equals("OK"))
             throw new Exception("Error al registrarse en aplicacion servidor: " + respuesta);
 
